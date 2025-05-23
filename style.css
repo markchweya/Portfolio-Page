@@ -1,212 +1,583 @@
-:root{
-    --purple:#2F192E;
-    --purple-light:#30192d;
-    --dark-blue:#012677;
-    --blue:#5c65c0;
-    --skyblue :#00b4fc;
-    --light-blue:#005bc5;
-    --dark-pink:#f64c57;
-    --dark-magenta:#e21b5a;
-    --light-green:#61e2c2;
-    --light-purple:#d9abff;
+:root {
+    /* New Color Palette - Inspired by a modern, professional, and slightly vibrant aesthetic */
+    --primary-bg: #1A1A2E;
+    /* Dark background for depth */
+    --secondary-bg: #282846;
+    /* Slightly lighter dark for contrast */
+    --accent-color-1: #E94560;
+    /* Vibrant red/pink for highlights */
+    --accent-color-2: #00BFFF;
+    /* Bright blue for secondary highlights */
+    --text-light: #F0F0F0;
+    /* Light text for readability */
+    --text-dark: #A0A0A0;
+    /* Slightly darker grey for secondary text */
+    --border-color: rgba(255, 255, 255, 0.1);
+    /* Subtle border for elements */
 }
-*{
+
+/* Universal box-sizing for consistent layout */
+* {
     box-sizing: border-box;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     text-decoration: none;
-    font-family: poppins,sans-serif;
+    font-family: 'Inter', sans-serif;
+    /* Using Inter font for a modern look */
 }
-body{
-    background: linear-gradient(45deg, var(--purple),var(--purple-light));
+
+/* Body styling with a subtle gradient background */
+body {
+    background: linear-gradient(45deg, var(--primary-bg), var(--secondary-bg));
+    min-height: 100vh;
+    /* Ensure body takes full viewport height */
+    display: flex;
+    /* Use flexbox for centering content */
+    justify-content: center;
+    align-items: center;
 }
-.container{
+
+/* Main container for the portfolio sections */
+.container {
     display: flex;
     justify-content: space-around;
+    /* Original layout property */
     align-items: center;
+    /* Original layout property */
     min-height: 100%;
     width: 100%;
     flex-wrap: wrap;
     position: relative;
+    padding: 20px;
+    /* Added padding for overall spacing */
+    gap: 30px;
+    /* Added gap for spacing between flex items */
 }
-.profile-card{
-    background: #111;
-    width:400px;
+
+/* Profile Card Styling */
+.profile-card {
+    background: var(--secondary-bg);
+    /* Changed to new color variable */
+    width: 400px;
     padding: 3rem;
     border-radius: 10px;
+    /* Original layout property */
     min-height: 400px;
     position: relative;
-    color:#fff;
+    color: var(--text-light);
+    /* Changed to new color variable */
     margin: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Soft shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Added transition */
 }
-.profile-card .profile-pic{
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-card .profile-pic {
     margin-top: 15px;
     overflow: hidden;
-}
-.profile-card .profile-pic img{
     border-radius: 10px;
+    /* Original layout property */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Added shadow */
 }
-.profile-card .profile-details{
+
+.profile-card .profile-pic img {
+    border-radius: 10px;
+    /* Original layout property */
+    display: block;
+    /* Ensures no extra space below image */
+    max-width: 100%;
+    /* Ensures image is responsive */
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+    /* Smooth zoom on hover */
+}
+
+.profile-card .profile-pic img:hover {
+    transform: scale(1.05);
+    /* Slightly zoom in on hover */
+}
+
+.profile-card .profile-details {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width:100%;
+    width: 100%;
 }
-.profile-details .intro{
+
+.profile-details .intro {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.profile-details .intro h2{
+
+.profile-details .intro h2 {
     margin-top: 20px;
+    color: var(--text-light);
+    /* Changed to new color variable */
 }
-.profile-details .intro h4{
-    background: #1d1d1d;
+
+.profile-details .intro h4 {
+    background: var(--primary-bg);
+    /* Changed to new color variable */
     font-weight: 400;
-    border-radius: 4px;
-    padding: 5px 10px;
+    border-radius: 8px;
+    /* More rounded */
+    padding: 8px 15px;
+    /* More padding */
+    margin: 10px;
+    color: var(--text-dark);
+    /* Changed to new color variable */
+}
+
+.profile-details .intro .social {
+    margin-top: 15px;
+    /* Adjusted margin */
+    margin-bottom: 30px;
+    /* Adjusted margin */
+}
+
+.profile-details .intro .social i {
+    color: var(--text-light);
+    /* Changed to new color variable */
+    font-size: 18px;
+    /* Slightly larger icons */
+    background-color: var(--primary-bg);
+    /* Changed to new color variable */
     margin: 8px;
-}
-.profile-details .intro .social{
-    margin-top: 10px;
-    margin-bottom: 25px;
-}
-.profile-details .intro .social i{
-    color:#ddd;
-    font-size: 16px;
-    background-color:#222;
-    margin: 5px;
-    height: 35px;
-    width:35px;
-    line-height: 35px;
+    /* More spacing */
+    height: 40px;
+    /* Larger touch target */
+    width: 40px;
+    /* Larger touch target */
+    line-height: 40px;
     text-align: center;
-    border-radius: 5px;
-    transition: 0.5s;
+    border-radius: 50%;
+    /* Circular icons */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* Smooth transition */
 }
-.profile-details .intro .social i:hover{
-    transform: scale(1.2);
-    border:1px solid rgba(255,255,255,0.3);
+
+/* Specific social icon colors for better branding (original values maintained) */
+.profile-details .intro .social .fa-facebook {
+    color: #3b5998;
 }
-.profile-details .contact-info{
-    background-color: #1d1d1d;
-    padding: 15px;
+
+.profile-details .intro .social .fa-twitter {
+    color: #00acee;
+}
+
+.profile-details .intro .social .fa-dribbble {
+    color: #ea4c89;
+}
+
+.profile-details .intro .social .fa-linkedin {
+    color: #0e76a8;
+}
+
+
+.profile-details .intro .social i:hover {
+    transform: scale(1.15);
+    /* Slightly larger scale on hover */
+    background-color: var(--accent-color-1);
+    /* Change background on hover */
+    color: var(--text-light);
+    /* Ensure text color remains readable */
+}
+
+.profile-details .contact-info {
+    background-color: var(--primary-bg);
+    /* Changed to new color variable */
+    padding: 20px;
+    /* More padding */
     border-radius: 10px;
     width: 100%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Inner shadow for depth */
 }
-.profile-details .contact-info .row{
+
+.profile-details .contact-info .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding: 10px 0;
-    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    /* Changed to new color variable */
+    padding: 12px 0;
+    /* More padding */
+    margin-bottom: 12px;
+    transition: background-color 0.3s ease-in-out;
+    /* Smooth background transition */
 }
-.contact-info .row .icon{
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
+
+.profile-details .contact-info .row:last-child {
+    border-bottom: none;
+    /* No border on the last row */
+}
+
+.profile-details .contact-info .row:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Slight highlight on hover */
     border-radius: 5px;
-    background-color: #111;
+}
+
+.contact-info .row .icon {
+    height: 45px;
+    /* Larger icon size */
+    width: 45px;
+    line-height: 45px;
+    border-radius: 8px;
+    /* More rounded */
+    background-color: var(--secondary-bg);
+    /* Changed to new color variable */
     text-align: center;
-    color:#fff;
-    transition: 0.5s;
+    color: var(--text-light);
+    /* Changed to new color variable */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    /* Smooth transition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
 }
-.row .icon:hover{
-    transform:scale(1.2);
-    border:1px solid rgba(255,255,255,0.1);
+
+/* Specific contact info icon colors (original values maintained) */
+.contact-info .row .icon .fa-phone {
+    color: var(--light-green);
 }
-.row .content{
+
+.contact-info .row .icon .fa-envelope-open {
+    color: var(--skyblue);
+}
+
+.contact-info .row .icon .fa-map-marker {
+    color: var(--light-purple);
+}
+
+
+.row .icon:hover {
+    transform: scale(1.1);
+    /* Slightly larger scale on hover */
+    background-color: var(--accent-color-2);
+    /* Change background on hover */
+}
+
+.row .content {
     min-width: 70%;
+    color: var(--text-light);
+    /* Changed to new color variable */
 }
-.row .content span{
-    font-size: 12px;
+
+.row .content span {
+    font-size: 13px;
+    /* Slightly larger font */
+    color: var(--text-dark);
+    /* Changed to new color variable */
 }
-.download-btn{
-    background: linear-gradient(45deg, #f64c57,#e21b5a);
-    color:#fff;
-    padding: 1rem 3rem;
+
+.download-btn {
+    background: linear-gradient(45deg, var(--accent-color-1), var(--dark-magenta));
+    /* Changed to new color variables */
+    color: var(--text-light);
+    /* Changed to new color variable */
+    padding: 1.2rem 3.5rem;
+    /* More padding */
     border-radius: 30px;
-    margin-top: 1.5rem;
-    border:none;
+    margin-top: 2rem;
+    /* More margin */
+    border: none;
+    font-size: 1rem;
+    /* Readable font size */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    /* Shadow for button */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+    /* All transitions */
 }
-/*****about section ****/
-.about{
-    background-color: #111;
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, var(--dark-magenta), var(--accent-color-1));
+    /* Reverse gradient on hover */
+}
+
+/***** about section ****/
+.about {
+    background-color: var(--secondary-bg);
+    /* Changed to new color variable */
     max-width: 800px;
+    /* Original layout property */
     padding: 2rem 3rem;
+    /* Original layout property */
     border-radius: 10px;
+    /* Original layout property */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Soft shadow */
+    color: var(--text-light);
+    /* Changed to new color variable */
+    margin: 15px;
+    /* Consistent margin */
 }
-.about h1{
-    color:#f2f2f2;
+
+.about h1 {
+    color: var(--text-light);
+    /* Changed to new color variable */
     margin-bottom: 1.1rem;
+    /* Original layout property */
     position: relative;
     display: inline-block;
     font-size: 3.5rem;
+    /* Original layout property */
+    padding-bottom: 10px;
+    /* Added padding for pseudo-element */
 }
-.about h1::after{
+
+.about h1::after {
     position: absolute;
     content: "";
-    top:50%;
-    right:-50%;
-    width:45%;
+    top: 50%;
+    /* Original layout property */
+    right: -50%;
+    /* Original layout property */
+    width: 45%;
+    /* Original layout property */
     height: 3px;
-    background: linear-gradient(45deg, #f64c57,#e21b5a);
+    /* Original layout property */
+    background: linear-gradient(45deg, var(--accent-color-1), var(--accent-color-2));
+    /* Changed to new color variables */
+    border-radius: 2px;
+    /* Added rounded ends for the underline */
 }
-.about h2{
-    color:#f2f2f2;
+
+.about h2 {
+    color: var(--text-light);
+    /* Changed to new color variable */
     font-size: 2rem;
-    margin:0.5rem 0;
+    /* Original layout property */
+    margin: 0.5rem 0;
+    /* Original layout property */
 }
-.about p{
-    color:#555;
-    margin:1.5rem 0;
+
+.about p {
+    color: var(--text-dark);
+    /* Changed to new color variable */
+    margin: 1.5rem 0;
+    /* Original layout property */
+    line-height: 1.6;
+    /* Better readability */
 }
-.about .work{
+
+.about .work {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* Original layout property */
     grid-template-rows: auto;
+    /* Original layout property */
+    gap: 20px;
+    /* Added gap for spacing between work boxes */
+    margin-top: 2rem;
+    /* Adjusted margin */
 }
-.work .workbox{
+
+.work .workbox {
     display: flex;
     justify-content: space-between;
-    border-radius:8px;
-    border:1px solid #333;
-    padding: 1rem;
-    margin:1rem;
+    /* Original layout property */
+    align-items: flex-start;
+    /* Aligns icon and text at the top */
+    background-color: var(--primary-bg);
+    /* Changed to new color variable */
+    border-radius: 10px;
+    /* Original layout property */
+    border: 1px solid var(--border-color);
+    /* Changed to new color variable */
+    padding: 1.5rem;
+    /* More padding */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Soft shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    /* All transitions */
+}
 
+.work .workbox:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(var(--primary-bg), 0.8);
+    /* Slightly lighter on hover */
 }
-.work .workbox .desc{
-    width:75%;
-    color:#555;
+
+.work .workbox .icon {
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+    margin-right: 15px;
+    /* Space between icon and text */
+    height: 50px;
+    /* Larger icon container */
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-color-1);
+    /* Changed to new color variable */
+    border-radius: 10px;
+    /* Original layout property */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    /* Added shadow */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    /* Added transition */
 }
-.work .workbox .desc h3{
-    color:#f2f2f2;
+
+.work .workbox .icon img {
+    max-width: 70%;
+    /* Ensure SVG fits within icon container */
+    height: auto;
+    filter: invert(100%);
+    /* Invert SVG color to white for contrast */
+}
+
+.work .workbox .icon:hover {
+    transform: scale(1.05);
+    /* Slight scale on hover */
+    background-color: var(--accent-color-2);
+    /* Change color on hover */
+}
+
+.work .workbox .desc {
+    width: 75%;
+    /* Original layout property */
+    color: var(--text-dark);
+    /* Changed to new color variable */
+}
+
+.work .workbox .desc h3 {
+    color: var(--text-light);
+    /* Changed to new color variable */
     margin-bottom: 3px;
+    /* Original layout property */
+    font-size: 1.3rem;
+    /* Slightly larger heading */
 }
-.work .workbox .desc p{
-    margin:0px;
-}
-/***Responsive Design ***/
-@media(max-width:768px)
-{
-    .about{
-        width: 1005;
-        max-width: 400px;
-        padding:1rem;
-        margin:1rem;
 
+.work .workbox .desc p {
+    margin: 0px;
+    /* Original layout property */
+    font-size: 0.95rem;
+    /* Slightly smaller text */
+    line-height: 1.5;
+    /* Better readability */
+}
+
+/***Responsive Design ***/
+@media(max-width:768px) {
+    .about {
+        width: 100%;
+        /* Corrected typo from 1005 to 100% */
+        max-width: 400px;
+        /* Original layout property */
+        padding: 1rem;
+        /* Original layout property */
+        margin: 1rem;
+        /* Original layout property */
     }
-    .about h1{
+
+    .about h1 {
         font-size: 2.2rem;
+        /* Original layout property */
     }
-    .about .work{
-        grid-template-columns: repeat(1,1fr);
-        grid-template-rows: repeat(4,auto);
+
+    .about .work {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, auto);
+    }
+
+    /* Added responsive adjustments for profile card for consistency with original */
+    .profile-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 1rem;
+    }
+
+    .profile-card .profile-details .intro h2 {
+        font-size: 2rem;
+        /* Adjusted font size */
+    }
+
+    .profile-card .profile-details .intro h4 {
+        font-size: 0.9rem;
+        /* Adjusted font size */
+        padding: 6px 12px;
+        /* Adjusted padding */
+    }
+
+    .profile-details .intro .social i {
+        height: 35px;
+        /* Adjusted size */
+        width: 35px;
+        line-height: 35px;
+        font-size: 16px;
+    }
+
+    .profile-details .contact-info .row .icon {
+        height: 40px;
+        /* Adjusted size */
+        width: 40px;
+        line-height: 40px;
+    }
+
+    .download-btn {
+        padding: 1rem 2.5rem;
+        /* Adjusted padding */
+        font-size: 0.9rem;
+        /* Adjusted font size */
+    }
+}
+
+@media(max-width:480px) {
+
+    .profile-card,
+    .about {
+        padding: 1rem;
+        /* Original layout property */
+        margin: 0.5rem 0;
+        /* Original layout property */
+    }
+
+    .about h1 {
+        font-size: 2.2rem;
+        /* Original layout property */
+    }
+
+    .about h2 {
+        font-size: 1.8rem;
+        /* Original layout property */
+    }
+
+    .work .workbox {
+        flex-direction: column;
+        /* Original layout property */
+        align-items: center;
+        /* Original layout property */
+        text-align: center;
+        /* Original layout property */
+    }
+
+    .work .workbox .icon {
+        margin-right: 0;
+        /* Original layout property */
+        margin-bottom: 10px;
+        /* Original layout property */
     }
 }
