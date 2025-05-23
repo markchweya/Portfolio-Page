@@ -33,7 +33,10 @@ body {
     /* Ensure body takes full viewport height */
     display: flex;
     /* Use flexbox for centering content */
-    justify-content: center;
+    flex-direction: column;
+    /* Allow content and footer to stack */
+    justify-content: space-between;
+    /* Push footer to the bottom */
     align-items: center;
 }
 
@@ -52,6 +55,8 @@ body {
     /* Added padding for overall spacing */
     gap: 30px;
     /* Added gap for spacing between flex items */
+    flex-grow: 1;
+    /* Allow container to grow and push footer down */
 }
 
 /* Profile Card Styling */
@@ -152,11 +157,11 @@ body {
 
 .profile-details .intro .social i {
     color: var(--text-light);
-    /* Changed to new color variable */
+    /* Icon color */
     font-size: 18px;
     /* Slightly larger icons */
     background-color: var(--primary-bg);
-    /* Changed to new color variable */
+    /* Background for social icons */
     margin: 8px;
     /* More spacing */
     height: 40px;
@@ -480,6 +485,28 @@ body {
     /* Better readability */
 }
 
+/* Footer Styling */
+.footer {
+    background-color: var(--primary-bg);
+    /* Dark background for the footer */
+    color: var(--text-dark);
+    /* Soft text color */
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 30px;
+    /* Space above the footer */
+    border-top: 1px solid var(--border-color);
+    /* Subtle top border */
+}
+
+.footer p {
+    margin: 0;
+    /* Remove default paragraph margin */
+    font-size: 0.9rem;
+}
+
+
 /***Responsive Design ***/
 @media(max-width:768px) {
     .about {
@@ -532,7 +559,6 @@ body {
 
     .profile-details .contact-info .row .icon {
         height: 40px;
-        /* Adjusted size */
         width: 40px;
         line-height: 40px;
     }
